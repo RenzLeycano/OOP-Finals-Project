@@ -51,14 +51,14 @@ public class PersonalInfo_Builder implements Resume {
                 String choice = input.nextLine();
                 if (choice.contains("1")) {
                     while (true) {
-                        System.out.print("Enter your name: ");
+                        System.out.print("Re-enter your name: ");
                         this.resumeWriter = input.nextLine();
                         break;
                     }
                 }
                 else if (choice.contains("2")) {
                     while (true) {
-                        System.out.print("Enter your age: ");
+                        System.out.print("Re-enter your age: ");
                         this.age = input.nextInt(); input.nextLine();
                         //call validator here
                         break;
@@ -66,7 +66,7 @@ public class PersonalInfo_Builder implements Resume {
                 }
                 else if (choice.contains("3")) {
                     while (true) {
-                        System.out.print("Enter your phone number: ");
+                        System.out.print("Re-enter your phone number: ");
                         this.phoneNo = input.nextLine();
                         // call validator here
                         break;
@@ -75,7 +75,7 @@ public class PersonalInfo_Builder implements Resume {
                 else if (choice.contains("4")) {
                     while (true) {
                         while (true) {
-                            System.out.print("Enter your email address: ");
+                            System.out.print("Re-enter your email address: ");
                             this.emailAddr = input.nextLine();
                             // call validator here
                             break;

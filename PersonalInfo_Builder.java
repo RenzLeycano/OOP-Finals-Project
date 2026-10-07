@@ -13,6 +13,9 @@ public class PersonalInfo_Builder implements Resume {
 
     public void input(){
         try {
+
+        Validator validator = new Validator();
+
             while (true) {
                 System.out.print("Enter your name: ");
                 this.resumeWriter = input.nextLine();
@@ -21,28 +24,31 @@ public class PersonalInfo_Builder implements Resume {
             while (true) {
                 System.out.print("Enter your age: ");
                 this.age = input.nextInt(); input.nextLine();
-                //call validator here
+                validator.validate(this.age, null, null);
                 break;
             }
             while (true) {
                 System.out.print("Enter your phone number: ");
                 this.phoneNo = input.nextLine();
-                // call validator here
+                validator.validate(this.age, this.phoneNo, null);
                 break;
             }
             while (true) {
                 System.out.print("Enter your email address: ");
                 this.emailAddr = input.nextLine();
-                // call validator here
+                validator.validate(this.age, this.phoneNo, this.emailAddr);
                 break;
             }
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             System.out.println("Error: Please try again.");
         }
     }
+
     public void edit(){
+
         boolean stopEditing = false;
+        Validator edit = new Validator();
+
         while (!stopEditing) {
             System.out.println("Please type the corresponding number of the information you want to edit:");
             System.out.println("\t[1] Name\n\t[2] Age \n\t[3] Phone Number\n\t[4] Email Address\n\t[5] Exit Editing");
@@ -50,6 +56,7 @@ public class PersonalInfo_Builder implements Resume {
             System.out.print("Edit: ");
             String choice = input.nextLine();
             switch (choice) {
+
                 case "1":
                     while (true) {
                         System.out.print("Re-enter your name: ");
@@ -59,34 +66,41 @@ public class PersonalInfo_Builder implements Resume {
                     break;
                 case "2":
                     while (true) {
-                        System.out.print("Re-enter your age: ");
-                        this.age = input.nextInt(); input.nextLine();
-                        //call validator here
-                        break;
+                        try {
+                            System.out.print("Re-enter your age: ");
+                            this.age = input.nextInt(); input.nextLine();
+                            edit.validate(this.age, null, null);
+                            break;
+                        } catch (InvalidAgeException e ){
+                            System.out.println("Error: " + e.getMessage());
+                        }
                     }
+                    break;
+
                 case "3":
                     while (true) {
                         try {
                             System.out.print("Re-enter your phone number: ");
                             this.phoneNo = input.nextLine();
-                            // call validator here
+                            edit.validate(this.age, this.phoneNo, null);
                             break;
-                        } catch (Exception e) {
-                            // Switch out for InvalidAgeException
+                        } catch (InvalidContactInfoException e) {
+                            System.out.println("Error: " + e.getMessage());
                         }
-                        
                     }
+                    break;
                 case "4":
                     while (true) {
                         try {
                             System.out.print("Re-enter your email address: ");
                             this.emailAddr = input.nextLine();
-                            // call validator here
+                            edit.validate(this.age, this.phoneNo, this.emailAddr);
                             break;
-                        } catch (Exception e) {
-                            // Switch out for InvalidContactInfoException
+                        } catch (InvalidContactInfoException e) {
+                            System.out.println("Error: " + e.getMessage());
                         }
                     }
+                    break;
                 case "5":
                     stopEditing = true;
                     break;

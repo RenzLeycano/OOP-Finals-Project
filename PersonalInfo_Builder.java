@@ -42,60 +42,61 @@ public class PersonalInfo_Builder implements Resume {
         }
     }
     public void edit(){
-        try {
-            while (true) {
-                System.out.println("Please type the corresponding number of the information you want to edit:");
-                System.out.println("\t[1] Name\n\t[2] Age \n\t[3] Phone Number\n\t[4] Email Address\n\t[5] Exit Editing");
+        boolean stopEditing = false;
+        while (!stopEditing) {
+            System.out.println("Please type the corresponding number of the information you want to edit:");
+            System.out.println("\t[1] Name\n\t[2] Age \n\t[3] Phone Number\n\t[4] Email Address\n\t[5] Exit Editing");
 
-                System.out.print("Edit: ");
-                String choice = input.nextLine();
-                if (choice.contains("1")) {
+            System.out.print("Edit: ");
+            String choice = input.nextLine();
+            switch (choice) {
+                case "1":
                     while (true) {
                         System.out.print("Re-enter your name: ");
                         this.resumeWriter = input.nextLine();
                         break;
                     }
-                }
-                else if (choice.contains("2")) {
+                    break;
+                case "2":
                     while (true) {
                         System.out.print("Re-enter your age: ");
                         this.age = input.nextInt(); input.nextLine();
                         //call validator here
                         break;
                     }
-                }
-                else if (choice.contains("3")) {
+                case "3":
                     while (true) {
-                        System.out.print("Re-enter your phone number: ");
-                        this.phoneNo = input.nextLine();
-                        // call validator here
-                        break;
+                        try {
+                            System.out.print("Re-enter your phone number: ");
+                            this.phoneNo = input.nextLine();
+                            // call validator here
+                            break;
+                        } catch (Exception e) {
+                            // Switch out for InvalidAgeException
+                        }
+                        
                     }
-                }
-                else if (choice.contains("4")) {
+                case "4":
                     while (true) {
-                        while (true) {
+                        try {
                             System.out.print("Re-enter your email address: ");
                             this.emailAddr = input.nextLine();
                             // call validator here
                             break;
+                        } catch (Exception e) {
+                            // Switch out for InvalidContactInfoException
                         }
                     }
-                }
-                else if (choice.contains("5")) {
+                case "5":
+                    stopEditing = true;
                     break;
-                }
-                else {
+                default:
                     System.out.println("Error: Please enter proper value.");
-                }
+                    break;
             }
-            
-            
-        }
-        catch(Exception e) {
-            System.out.println("Error: Please try again.");
         }
     }
+    
     public void display(){
         System.out.println("Name: " + resumeWriter);
         System.out.println("Age: " + age);

@@ -13,7 +13,7 @@ public class Summary_Builder implements Resume{
         this.summary = input.nextLine();
     }
     public void display(){
-        System.out.println("Summary");
+        System.out.println("Summary:");
         System.out.println(summary);
     }
 }

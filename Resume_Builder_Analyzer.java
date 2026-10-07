@@ -9,6 +9,10 @@ public class Resume_Builder_Analyzer {
         ArrayList<Resume> sections;
         QA_Analyzer analyze;
         
+        build = new Education_Builder();
 
+        build.input();
+        build.edit();
+        build.display();
     }
 }

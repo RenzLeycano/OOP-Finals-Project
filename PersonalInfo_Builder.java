@@ -3,6 +3,7 @@ public class PersonalInfo_Builder implements Resume {
     private int age;
     private String phoneNo;
     private String emailAddr;
+    Validator valid = new Validator();
 
     public PersonalInfo_Builder() {
         this.resumeWriter = "Unknown";
@@ -14,8 +15,6 @@ public class PersonalInfo_Builder implements Resume {
     public void input(){
         try {
 
-        Validator validator = new Validator();
-
             while (true) {
                 System.out.print("Enter your name: ");
                 this.resumeWriter = input.nextLine();
@@ -24,19 +23,19 @@ public class PersonalInfo_Builder implements Resume {
             while (true) {
                 System.out.print("Enter your age: ");
                 this.age = input.nextInt(); input.nextLine();
-                validator.validate(this.age, null, null);
+                valid.validate(age);
                 break;
             }
             while (true) {
                 System.out.print("Enter your phone number: ");
                 this.phoneNo = input.nextLine();
-                validator.validate(this.age, this.phoneNo, null);
+                valid.validate(phoneNo, null);
                 break;
             }
             while (true) {
                 System.out.print("Enter your email address: ");
                 this.emailAddr = input.nextLine();
-                validator.validate(this.age, this.phoneNo, this.emailAddr);
+                valid.validate(phoneNo, emailAddr);
                 break;
             }
         } catch(Exception e) {
@@ -47,8 +46,7 @@ public class PersonalInfo_Builder implements Resume {
     public void edit(){
 
         boolean stopEditing = false;
-        Validator edit = new Validator();
-
+        
         while (!stopEditing) {
             System.out.println("Please type the corresponding number of the information you want to edit:");
             System.out.println("\t[1] Name\n\t[2] Age \n\t[3] Phone Number\n\t[4] Email Address\n\t[5] Exit Editing");
@@ -69,7 +67,7 @@ public class PersonalInfo_Builder implements Resume {
                         try {
                             System.out.print("Re-enter your age: ");
                             this.age = input.nextInt(); input.nextLine();
-                            edit.validate(this.age, null, null);
+                            valid.validate(age);
                             break;
                         } catch (InvalidAgeException e ){
                             System.out.println("Error: " + e.getMessage());
@@ -82,7 +80,7 @@ public class PersonalInfo_Builder implements Resume {
                         try {
                             System.out.print("Re-enter your phone number: ");
                             this.phoneNo = input.nextLine();
-                            edit.validate(this.age, this.phoneNo, null);
+                            valid.validate(phoneNo, emailAddr);
                             break;
                         } catch (InvalidContactInfoException e) {
                             System.out.println("Error: " + e.getMessage());
@@ -94,7 +92,7 @@ public class PersonalInfo_Builder implements Resume {
                         try {
                             System.out.print("Re-enter your email address: ");
                             this.emailAddr = input.nextLine();
-                            edit.validate(this.age, this.phoneNo, this.emailAddr);
+                            valid.validate(phoneNo, emailAddr);
                             break;
                         } catch (InvalidContactInfoException e) {
                             System.out.println("Error: " + e.getMessage());

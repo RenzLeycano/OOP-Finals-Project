@@ -3,11 +3,13 @@ public class Validator {
     private String contactNo;
     private String email;
     
-    public void validate(int age, String contactNo, String email) throws InvalidAgeException, InvalidContactInfoException {
+    public void validate(int age) throws InvalidAgeException {
         if (age < 15 || age > 65){
             throw new InvalidAgeException("Age must be between 15 and 65.");
         }
+    }
 
+    public void validate(String contactNo, String email) throws InvalidContactInfoException{
         if (contactNo != null && !contactNo.matches("(09\\d{9}")){
             throw new InvalidContactInfoException("Contact number must be 11 digits and start with 09.");    
         } 

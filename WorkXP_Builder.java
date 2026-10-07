@@ -23,7 +23,6 @@ public class WorkXP_Builder implements Resume {
         int index;
 
         while (!stopEditing) {
-            boolean listEdit = false;
             //Display the starting years first
             System.out.println("\nYour current inputted work experience/s:");
             for(int i = 1; i < (experiences.size()) + 1; i++){
@@ -76,6 +75,11 @@ public class WorkXP_Builder implements Resume {
                         } 
                     }
                     break;
+                case "q":
+                    stopEditing = !stopEditing;
+                    break;
+                default:
+                    System.out.println("Please try again.");
             }
         }
     }

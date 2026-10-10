@@ -13,13 +13,19 @@ public class FormatCheck implements Strategy{
         int score = 100;
 
         for (Resume section: sections) {
+
+            if (section instanceof OptionalParts_Builder){
+                continue;
+            }
+
             String content = captureDisplay(section);
 
             if (content.trim().length() < MIN_SECTION_LENGTH) {
                 score -= 10;
-                suggestions.add("Consider expanding the section with more detail");
+                suggestions.add("Consider expanding the " + section.getClass().getSimpleName() + " section with more detail");
             }
         }
+
 
         score = Math.max(score, 0);
         return new Result(score, matchedKeywords, missingKeywords, suggestions);
@@ -28,9 +34,14 @@ public class FormatCheck implements Strategy{
     private String captureDisplay(Resume section) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         PrintStream original = System.out;
-        System.setOut(new PrintStream(buffer));
-        section.display();
-        System.setOut(original);
+        try{
+            System.setOut(new PrintStream(buffer));
+            section.display();
+        } catch (Exception e){
+
+        } finally{
+            System.setOut(original);
+        }        
         return buffer.toString();
     }
 }

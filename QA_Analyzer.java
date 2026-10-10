@@ -36,7 +36,7 @@ public class QA_Analyzer {
 
         overallScore = totalScore / strategies.size();
 
-        Result overallResult = new Result(totalScore, allMatched, allMissing, allSuggestions);
+        Result overallResult = new Result(overallScore, allMatched, allMissing, allSuggestions);
         System.out.println("-----------------------------------------");
         System.out.println("OVERALL RESULT");
         overallResult.display();

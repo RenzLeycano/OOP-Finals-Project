@@ -22,12 +22,12 @@ public class Job_Description {
         keywords.clear();
 
         ArrayList<String> stopWords = new ArrayList<>(Arrays.asList("the", "and", "with", "for", "are", "you", "our",
-                "will", "have", "has", "this", "that", "job", "role", "work"));
+                "will", "have", "has", "this", "that", "job", "role", "work", "all", "any", "can", "but", "not", "who", "per", "etc", "experience", "skills", "education", "summary", "achievements", "email", "phone"));
 
         String[] words = description.toLowerCase().split("[^a-zA-Z]+");
 
         for (String word : words) {
-            if (word.length() > 3 && !stopWords.contains(word)) {
+            if (word.length() > 2 && !stopWords.contains(word) && !keywords.contains(word)) {
                 keywords.add(word);
             }
         }

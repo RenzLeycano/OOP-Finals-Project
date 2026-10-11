@@ -12,13 +12,13 @@ public class Skills_Builder implements Resume {
     public void input(){
         System.out.println("=========================================SKILLS==========================================\n");
         System.out.print("Enter your Technical Skills: ");
-        this.techSkills = input.nextLine(); input.nextLine();
-
+        this.techSkills = input.nextLine();
+        
         System.out.print("Enter your Soft Skills: ");
-        this.softSkills = input.nextLine(); input.nextLine();
+        this.softSkills = input.nextLine(); 
 
         System.out.print("Enter your Languages: ");
-        this.languages = input.nextLine(); input.nextLine();
+        this.languages = input.nextLine();
     }
     public void edit(){
         System.out.print("Re-enter your Technical Skills: ");

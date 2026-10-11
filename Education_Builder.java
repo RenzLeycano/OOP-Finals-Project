@@ -8,7 +8,7 @@ public class Education_Builder implements Resume {
     private ArrayList<Integer> startYear;
     private ArrayList<Integer> gradYear;
     private ArrayList<String> acadAchievements;
-    private ArrayList<String> coursework;
+    private ArrayList<String> courseWork;
     private final int currentYear = 2026;
     
     public Education_Builder(){
@@ -18,7 +18,7 @@ public class Education_Builder implements Resume {
         this.startYear = new ArrayList<>();
         this.gradYear = new ArrayList<>();
         this.acadAchievements = new ArrayList<>();
-        this.coursework = new ArrayList<>();
+        this.courseWork = new ArrayList<>();
     }
 
     public void input(){
@@ -132,7 +132,7 @@ public class Education_Builder implements Resume {
         // courseWork - User's course work, only asked if the user went to college
         if(isCollege()){
             System.out.print("\nEnter your relevant course work (comma-separated): ");
-            this.coursework = new ArrayList<>(Arrays.asList(input.nextLine().split(",")));
+            this.courseWork = new ArrayList<>(Arrays.asList(input.nextLine().split(",")));
         }
     }
     public void edit(){
@@ -144,7 +144,7 @@ public class Education_Builder implements Resume {
             boolean listEdit = false;
 
             System.out.println("\nPlease type the corresponding number of the information you want to edit:");
-            System.out.println("\t[1] Education Attainment\n\t[2] Degree \n\t[3] Start Year\n\t[4] Completion/Expected Graduation Year\n\t[5] Academic Achievements\n\t[6] Relevant Coursework\n\t[7] Exit Editing");
+            System.out.println("\t[1] Education Attainment\n\t[2] Degree \n\t[3] Start Year\n\t[4] Completion/Expected Graduation Year\n\t[5] Academic Achievements\n\t[6] Relevant Course work\n\t[7] Exit Editing");
 
             System.out.print("Edit: ");
             String editChoice = input.nextLine();
@@ -248,6 +248,11 @@ public class Education_Builder implements Resume {
                                     index = input.nextInt();
                                     input.nextLine();
 
+                                    if(index <= 0 || index > degree.size()) {
+                                        System.out.println("Input does not exist.");
+                                        break;
+                                    }
+
                                     System.out.print("Edit the course work: ");
                                     degree.set((index - 1), input.nextLine());
                                     break;
@@ -306,6 +311,11 @@ public class Education_Builder implements Resume {
                                         index = input.nextInt();
                                         input.nextLine();
 
+                                        if(index <= 0 || index > startYear.size()) {
+                                            System.out.println("Input does not exist.");
+                                            break;
+                                        }
+
                                         System.out.print("Edit the starting year: ");
                                         startYear.set((index - 1), input.nextInt()); input.nextLine();
                                         break;
@@ -362,10 +372,15 @@ public class Education_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > gradYear.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 while (true) {
                                     try {
                                         System.out.print("Edit the completion/graduation year: ");
-                                        degree.set((index - 1), input.nextLine());
+                                        gradYear.set((index - 1), input.nextInt());
                                         break;
                                     } catch (Exception e) {
                                         System.out.println("Try again. Enter a number.");
@@ -404,12 +419,20 @@ public class Education_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > acadAchievements.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the achievement: ");
                                 acadAchievements.set((index - 1), input.nextLine());
                                 break;
                             case "d":
-                                System.out.print("Delete an achievement: ");
-                                acadAchievements.remove(input.nextLine());
+                                System.out.print("Enter the number of an achievement to delete: ");
+                                if(!acadAchievements.remove(input.nextLine()))
+                                {
+                                    System.out.println("Achievement does not exist.");
+                                }
                                 break;
                             case "q":
                                 listEdit = true;
@@ -429,8 +452,8 @@ public class Education_Builder implements Resume {
                         while (!listEdit) {
                             //Display the achievements first
                             System.out.println("\nYour current inputted course work:");
-                            for(int i = 1; i < (coursework.size()) + 1; i++){
-                                System.out.println("\t[i] " + coursework.get(i-1));
+                            for(int i = 1; i < (courseWork.size()) + 1; i++){
+                                System.out.println("\t[i] " + courseWork.get(i-1));
                             }
 
                             System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -439,19 +462,26 @@ public class Education_Builder implements Resume {
                             switch (listMod) {
                                 case "a":
                                     System.out.print("Add a course work: ");
-                                    coursework.add(input.nextLine());
+                                    courseWork.add(input.nextLine());
                                     break;
                                 case "e":
                                     System.out.print("Enter the number of a course work: ");
                                     index = input.nextInt();
                                     input.nextLine();
 
+                                    if(index <= 0 || index > courseWork.size()) {
+                                        System.out.println("Input does not exist.");
+                                        break;
+                                    }
+
                                     System.out.print("Edit the course work: ");
-                                    coursework.set((index - 1), input.nextLine());
+                                    courseWork.set((index - 1), input.nextLine());
                                     break;
                                 case "d":
-                                    System.out.print("Delete a course work: ");
-                                    coursework.remove(input.nextLine());
+                                    System.out.print("Enter the number of a course work to delete: ");
+                                    if(!courseWork.remove(input.nextLine())) {
+                                        System.out.println("Course work does not exist.");
+                                    }
                                     break;
                                 case "q":
                                     listEdit = true;
@@ -516,7 +546,7 @@ public class Education_Builder implements Resume {
         }
         if(isCollege()) {
             System.out.println("Course Work: ");
-            for(String courses : coursework){
+            for(String courses : courseWork){
                 System.out.println("- " + courses);
             }
         }

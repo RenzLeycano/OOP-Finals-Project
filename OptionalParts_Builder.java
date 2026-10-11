@@ -91,13 +91,20 @@ public class OptionalParts_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > projects.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the project: ");
                                 projects.set((index - 1), input.nextLine());
                                 break;
 
                             case "d":
-                                System.out.print("Delete a project: ");
-                                projects.remove(input.nextLine());
+                                System.out.print("Enter the number of a project to delete: ");
+                                if(projects.remove(input.nextLine())) {
+                                    System.out.println("Project does not exist.");
+                                }
                                 break;
 
                             case "q":
@@ -126,7 +133,7 @@ public class OptionalParts_Builder implements Resume {
                         switch (listMod) {
                             case "a":
                                 System.out.print("Add a certificate: ");
-                                projects.add(input.nextLine());
+                                certs.add(input.nextLine());
                                 break;
 
                             case "e":
@@ -134,13 +141,20 @@ public class OptionalParts_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > certs.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the certificate: ");
                                 certs.set((index - 1), input.nextLine());
                                 break;
 
                             case "d":
-                                System.out.print("Delete a certificate: ");
-                                projects.remove(input.nextLine());
+                                System.out.print("Enter the number of a certificate to delete: ");
+                                if(!certs.remove(input.nextLine())) {
+                                    System.out.println("Certification does not exist.");
+                                }
                                 break;
 
                             case "q":
@@ -177,13 +191,20 @@ public class OptionalParts_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > awards.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the award: ");
                                 awards.set((index - 1), input.nextLine());
                                 break;
 
                             case "d":
-                                System.out.print("Delete an award: ");
-                                awards.remove(input.nextLine());
+                                System.out.print("Enter the number of an award to delete: ");
+                                if(!awards.remove(input.nextLine())) {
+                                    System.out.println("Award does not exist");
+                                }
                                 break;
 
                             case "q":
@@ -212,7 +233,7 @@ public class OptionalParts_Builder implements Resume {
                         switch (listMod) {
                             case "a":
                                 System.out.print("Add a training/seminar experience: ");
-                                projects.add(input.nextLine());
+                                training.add(input.nextLine());
                                 break;
 
                             case "e":
@@ -220,15 +241,24 @@ public class OptionalParts_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > training.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the training/seminar experience: ");
-                                projects.set((index - 1), input.nextLine());
+                                training.set((index - 1), input.nextLine());
                                 break;
 
                             case "d":
-                                System.out.print("Delete a training/seminar experience: ");
-                                projects.remove(input.nextLine());
+                                System.out.print("Enter the number of a training/seminar experience to delete: ");
+                                if(!training.remove(input.nextLine()))
+                                {
+                                    System.out.println("Training/seminar does not exist.");
+                                    break;
+                                }
                                 break;
-
+                                
                             case "q":
                                 listEdit = true;
                                 break;
@@ -263,13 +293,22 @@ public class OptionalParts_Builder implements Resume {
                                 index = input.nextInt();
                                 input.nextLine();
 
+                                if(index <= 0 || index > volunteerXP.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
                                 System.out.print("Edit the volunteer experience: ");
-                                projects.set((index - 1), input.nextLine());
+                                volunteerXP.set((index - 1), input.nextLine());
                                 break;
 
                             case "d":
-                                System.out.print("Delete a volunteer experience: ");
-                                projects.remove(input.nextLine());
+                                System.out.print("Enter the number of a volunteer experience to delete: ");
+                                if(!volunteerXP.remove(input.nextLine()))
+                                {
+                                    System.out.println("The volunteer experience does not exist.");
+                                    break;
+                                }
                                 break;
 
                             case "q":
@@ -283,12 +322,103 @@ public class OptionalParts_Builder implements Resume {
                         
                     }
                     break;
+                case "6":
+                    while (!listEdit) {
+                        //Display the references first
+                        System.out.println("\nYour current inputted references:");
+                        for(int i = 1; i < (reference.size()) + 1; i++){
+                            System.out.println("\t[i] " + reference.get(i-1));
+                        }
+
+                        System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
+                        listMod = input.nextLine().toLowerCase();
+
+                        switch (listMod) {
+                            case "a":
+                                System.out.print("Add a reference: ");
+                                reference.add(input.nextLine());
+                                break;
+
+                            case "e":
+                                System.out.print("Enter the number of a reference: ");
+                                index = input.nextInt();
+                                input.nextLine();
+
+                                if(index <= 0 || index > reference.size()) {
+                                    System.out.println("Input does not exist.");
+                                    break;
+                                }
+
+                                System.out.print("Edit the reference: ");
+                                reference.set((index - 1), input.nextLine());
+                                break;
+
+                            case "d":
+                                System.out.print("Enter the number of a reference to delete: ");
+                                if(!reference.remove(input.nextLine()))
+                                {
+                                    System.out.println("The reference does not exist.");
+                                    break;
+                                } 
+                                break;
+
+                            case "q":
+                                listEdit = true;
+                                break;
+
+                            default:
+                                System.out.println("Please try again.");
+                                break;
+                        }
+                        
+                    }
+                    break;
+                case "7":
+                    stopEditing = true;
+                    break;
                 default:
+                    System.out.println("Error: Please enter proper value.");                    
                     break;
             }
         }
     }
     public void display(){
-
+        // Check first if the lists are not empty, otherwise they won't be printed.
+        if(!projects.isEmpty()){
+            System.out.println("Projects");
+            for(String proj : projects) {
+                System.out.println("- " + proj.trim());
+            }
+        }
+        if(!certs.isEmpty()){
+            System.out.println("Certifications");
+            for(String cert : certs) {
+                System.out.println("- " + cert.trim());
+            }
+        }
+        if(!awards.isEmpty()){
+            System.out.println("Awards");
+            for(String award : awards) {
+                System.out.println("- " + award.trim());
+            }
+        }
+        if(!training.isEmpty()){
+            System.out.println("Training / Seminar Attended");
+            for(String xp : training) {
+                System.out.println("- " + xp.trim());
+            }
+        }
+        if(!volunteerXP.isEmpty()){
+            System.out.println("Volunteering Experience");
+            for(String volunteer : volunteerXP) {
+                System.out.println("- " + volunteer.trim());
+            }
+        }
+        if(!reference.isEmpty()){
+            System.out.println("References");
+            for(String ref : reference) {
+                System.out.println("- " + ref.trim());
+            }
+        }
     }
 }

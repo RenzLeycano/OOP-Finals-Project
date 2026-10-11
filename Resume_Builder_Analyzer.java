@@ -42,7 +42,7 @@ public class Resume_Builder_Analyzer {
             }
         }
         
-        System.out.println("Would you like to analyze this resume against a job description? (Y/N): ");
+        System.out.print("Would you like to analyze this resume against a job description? (Y/N): ");
         char analyze_choice = Character.toUpperCase(input.next().charAt(0));input.nextLine();
         
         if (analyze_choice == 'Y') {

@@ -58,7 +58,7 @@ public class WorkXP_Builder implements Resume {
                             experiences.set(index, input.nextLine());
                             break;
                         } catch(Exception e) {
-                            System.out.println("Try again. Enter a proper input.");
+                            System.out.println("Error: Try again. Enter a proper input.");
                         }
                     }
                     break;
@@ -72,7 +72,7 @@ public class WorkXP_Builder implements Resume {
                         } catch(IndexOutOfBoundsException e) {
                             System.out.println("Try again. The number you entered is not on the list.");
                         } catch(Exception e) {
-                            System.out.println("Try again. Enter a number.");
+                            System.out.println("Error: Try again. Enter a number.");
                         } 
                     }
                     break;

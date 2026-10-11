@@ -28,9 +28,10 @@ public class PersonalInfo_Builder implements Resume {
                     valid.validate(age);
                     break;
                 } catch (InvalidAgeException e) {
-                    System.out.println("Error: " + e.getMessage());
+                    System.out.println("Error: " + e.getMessage() + "\n");
                 } catch (Exception e) {
-                    System.out.println("Error: Try Again. Please enter a number.");
+                    System.out.println("Error: Try Again. Please enter a number.\n");
+                    input.nextLine();
                 } 
             }
             while (true) {
@@ -40,7 +41,7 @@ public class PersonalInfo_Builder implements Resume {
                     valid.validate(phoneNo, null);
                     break;
                 } catch(InvalidContactInfoException e) {
-                    System.out.println("Error: " + e.getMessage());
+                    System.out.println("Error: " + e.getMessage() + "\n");
                 }
                 
             }
@@ -51,11 +52,11 @@ public class PersonalInfo_Builder implements Resume {
                     valid.validate(phoneNo, emailAddr);
                     break;
                 } catch(InvalidContactInfoException e) {
-                    System.out.println("Error: " + e.getMessage() );
+                    System.out.println("Error: " + e.getMessage() + "\n" );
                 }
             }
         } catch(Exception e) {
-            System.out.println("Error: Please try again.");
+            System.out.println("Error: Please try again.\n");
         }
     }
 
@@ -85,10 +86,11 @@ public class PersonalInfo_Builder implements Resume {
                             this.age = input.nextInt(); input.nextLine();
                             valid.validate(age);
                             break;
-                        } catch (InvalidAgeException e ){
-                            System.out.println("Error: " + e.getMessage());
+                        } catch (InvalidAgeException e){
+                            System.out.println("Error: " + e.getMessage() + "\n");
                         } catch (Exception e) {
-                            System.out.println("Error: Try again. Please enter a number.");
+                            System.out.println("Error: Try again. Please enter a number.\n");
+                            input.nextLine();
                         }
                     }
                     break;
@@ -101,7 +103,7 @@ public class PersonalInfo_Builder implements Resume {
                             valid.validate(phoneNo, emailAddr);
                             break;
                         } catch (InvalidContactInfoException e) {
-                            System.out.println("Error: " + e.getMessage());
+                            System.out.println("Error: " + e.getMessage() + "\n");
                         }
                     }
                     break;
@@ -113,7 +115,7 @@ public class PersonalInfo_Builder implements Resume {
                             valid.validate(phoneNo, emailAddr);
                             break;
                         } catch (InvalidContactInfoException e) {
-                            System.out.println("Error: " + e.getMessage());
+                            System.out.println("Error: " + e.getMessage() + "\n");
                         }
                     }
                     break;
@@ -121,7 +123,7 @@ public class PersonalInfo_Builder implements Resume {
                     stopEditing = true;
                     break;
                 default:
-                    System.out.println("Error: Please enter proper value.");
+                    System.out.println("Error: Please enter proper value.\n");
                     break;
             }
         }

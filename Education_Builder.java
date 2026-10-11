@@ -101,7 +101,8 @@ public class Education_Builder implements Resume {
                         break;
                     }
                     catch (Exception e) {
-                        System.out.println("Try again, enter a proper year");
+                        System.out.println("Error: Try again. Please enter a proper year");
+                        input.nextLine();
                     }
                 }
             }
@@ -119,7 +120,8 @@ public class Education_Builder implements Resume {
                     break;
                 }
                 catch (Exception e) {
-                    System.out.println("Try again, enter a proper year");
+                    System.out.println("Error: Try again. Please enter a proper year");
+                    input.nextLine();
                 }
             }
             
@@ -298,7 +300,8 @@ public class Education_Builder implements Resume {
                                             startYear.add(input.nextInt()); input.nextLine();
                                             break;
                                         } catch(Exception e) {
-                                            System.out.println("Try again. Enter a proper year.");
+                                            System.out.println("Error: Try again. Enter a proper year.");
+                                            input.nextLine();
                                         }
                                     }
                                     break;
@@ -320,7 +323,8 @@ public class Education_Builder implements Resume {
                                         startYear.set((index - 1), input.nextInt()); input.nextLine();
                                         break;
                                     } catch (Exception e) {
-                                        System.out.println("Try again. Enter a number.");
+                                        System.out.println("Error: Try again. Enter a number.");
+                                        input.nextLine();
                                     }
                                 }
                                 break;
@@ -362,28 +366,31 @@ public class Education_Builder implements Resume {
                                             gradYear.add(input.nextInt());
                                             break;
                                         } catch(Exception e) {
-                                            System.out.println("Try again. Enter a proper year.");
+                                            System.out.println("Error: Try again. Enter a proper year.");
+                                            input.nextLine();
                                         }
                                     }
                                 }
                                 break;
                             case "e":
-                                System.out.print("Enter the corresponding number of the year to edit: ");
-                                index = input.nextInt();
-                                input.nextLine();
-
-                                if(index <= 0 || index > gradYear.size()) {
-                                    System.out.println("Input does not exist.");
-                                    break;
-                                }
-
+                                
                                 while (true) {
                                     try {
+                                        System.out.print("Enter the corresponding number of the year to edit: ");
+                                        index = input.nextInt();
+                                        input.nextLine();
+
+                                        if(index <= 0 || index > gradYear.size()) {
+                                            System.out.println("Input does not exist.");
+                                            break;
+                                        }
+
                                         System.out.print("Edit the completion/graduation year: ");
-                                        gradYear.set((index - 1), input.nextInt());
+                                        gradYear.set((index - 1), input.nextInt()); input.nextLine();
                                         break;
                                     } catch (Exception e) {
-                                        System.out.println("Try again. Enter a number.");
+                                        System.out.println("Error: Try again. Enter a number.");
+                                        input.nextLine();
                                     }
                                 }
                                 break;
@@ -415,23 +422,34 @@ public class Education_Builder implements Resume {
                                 acadAchievements.add(input.nextLine());
                                 break;
                             case "e":
-                                System.out.print("Enter the number of an achievement: ");
-                                index = input.nextInt();
-                                input.nextLine();
+                                try {
+                                    System.out.print("Enter the number of an achievement: ");
+                                    index = input.nextInt();
+                                    input.nextLine();
 
-                                if(index <= 0 || index > acadAchievements.size()) {
-                                    System.out.println("Input does not exist.");
-                                    break;
+                                    if(index <= 0 || index > acadAchievements.size()) {
+                                        System.out.println("Input does not exist.");
+                                        break;
+                                    }
+
+                                    System.out.print("Edit the achievement: ");
+                                    acadAchievements.set((index - 1), input.nextLine());
+                                } catch (Exception e) {
+                                    System.out.println("Error: Try again. Please enter a number.");
+                                    input.nextLine();
                                 }
-
-                                System.out.print("Edit the achievement: ");
-                                acadAchievements.set((index - 1), input.nextLine());
+                                
                                 break;
                             case "d":
                                 System.out.print("Enter the number of an achievement to delete: ");
-                                if(!acadAchievements.remove(input.nextLine()))
-                                {
+                                try {
+                                    acadAchievements.remove((input.nextInt() - 1));
+                                } catch(IndexOutOfBoundsException e) {
                                     System.out.println("Achievement does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
                             case "q":
@@ -479,8 +497,14 @@ public class Education_Builder implements Resume {
                                     break;
                                 case "d":
                                     System.out.print("Enter the number of a course work to delete: ");
-                                    if(!courseWork.remove(input.nextLine())) {
-                                        System.out.println("Course work does not exist.");
+                                    try {
+                                        courseWork.remove((input.nextInt() - 1)); 
+                                    } catch(IndexOutOfBoundsException e){
+                                        System.out.println("Course Work does not exist.");
+                                    } catch(Exception e) {
+                                        System.out.println("Error: Try again. Enter a number.");
+                                    } finally {
+                                        input.nextLine();
                                     }
                                     break;
                                 case "q":

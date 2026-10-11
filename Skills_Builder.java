@@ -13,9 +13,9 @@ public class Skills_Builder implements Resume {
         System.out.println("=========================================SKILLS==========================================\n");
         System.out.print("Enter your Technical Skills: ");
         this.techSkills = input.nextLine();
-
+        
         System.out.print("Enter your Soft Skills: ");
-        this.softSkills = input.nextLine();
+        this.softSkills = input.nextLine(); 
 
         System.out.print("Enter your Languages: ");
         this.languages = input.nextLine();

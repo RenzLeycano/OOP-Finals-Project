@@ -38,7 +38,7 @@ public class Result {
         }
 
         if (!missingKeywords.isEmpty()) {
-            System.out.println("Missing Keywords: " + String.join(",", missingKeywords));
+            System.out.println("Missing Keywords: " + String.join(", ", missingKeywords));
         }
 
         if (!suggestions.isEmpty()) {

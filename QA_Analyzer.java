@@ -25,7 +25,8 @@ public class QA_Analyzer {
 
         for (Strategy strategy : strategies){
             Result result = strategy.evaluate(sections, jobDescription);
-            System.out.println("------------------------------------------");
+            System.out.println("-----------------------------------------");
+            System.out.println(strategy.getClass().getSimpleName());
             result.display();
 
             totalScore += result.getScore();

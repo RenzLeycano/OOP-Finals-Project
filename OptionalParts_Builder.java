@@ -20,7 +20,7 @@ public class OptionalParts_Builder implements Resume {
     
     public void input(){
         String checkerIfNA;
-
+        System.out.println("====================================OPTIONAL SECTION=====================================\n");
         System.out.println("Type 'None' if not applicable");
 
         // projects - User's certifications

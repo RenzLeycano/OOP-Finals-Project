@@ -5,6 +5,7 @@ public class Summary_Builder implements Resume{
         this.summary = "Empty";
     }
     public void input(){
+        System.out.println("=====================================RESUME SUMMARY======================================\n");
         System.out.print("Enter your Resume Summary: ");
         this.summary = input.nextLine();
     }

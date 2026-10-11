@@ -22,7 +22,7 @@ public class Education_Builder implements Resume {
     }
 
     public void input(){
-
+        System.out.println("=======================================EDUCATION========================================\n");
         // finishedEduc - Education Attainment
         System.out.println("What is your highest education attainment?");
         System.out.println("\t[1] Junior High School\n\t[2] Senior High School\n\t[3] College Undergraduate\n\t[4] Bachelor's Degree\n\t[5] Master's Degree\n\t[6] Doctor's Degree");

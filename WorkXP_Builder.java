@@ -7,6 +7,7 @@ public class WorkXP_Builder implements Resume {
         this.experiences = new ArrayList<>();
     }
     public void input(){
+        System.out.println("====================================WORK EXPERIENCE======================================\n");
         System.out.println("Enter your job description/s below: \n(job title, required skills and qualifications) \nType 'END' on a new line when finished.");
         while(true) {
             System.out.print("- "); String XP = input.nextLine();

@@ -10,6 +10,7 @@ public class Skills_Builder implements Resume {
     }
 
     public void input(){
+        System.out.println("=========================================SKILLS==========================================\n");
         System.out.print("Enter your Technical Skills: ");
         this.techSkills = input.nextLine(); input.nextLine();
 

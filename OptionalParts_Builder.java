@@ -29,26 +29,31 @@ public class OptionalParts_Builder implements Resume {
         this.projects = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
 
         // certs - User's certifications
+        checkerIfNA = "";
         System.out.print("Enter certifications (comma-separated): ");
         checkerIfNA = input.nextLine();
         this.certs = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
 
         // awards - User's awards
+        checkerIfNA = "";
         System.out.print("Enter awards (comma-separated): ");
         checkerIfNA = input.nextLine();
         this.awards = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
 
         // training - Seminars and training the user attended/participated on
+        checkerIfNA = "";
         System.out.print("Enter training/seminars (comma-separated): ");
         checkerIfNA = input.nextLine();
         this.training = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
 
         // volunteerXP - User's volunteering experience
+        checkerIfNA = "";
         System.out.print("Enter volunteer experiences (comma-separated): ");
         checkerIfNA = input.nextLine();
         this.volunteerXP = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
 
         // references - User's reference
+        checkerIfNA = "";
         System.out.println("\nNOTE: ONLY ENTER REFERENCES IF YOU HAVE TO OR THE JOB DESCRIPTION REQUIRES IT.");
         System.out.print("Enter references (comma-separated): ");
         checkerIfNA = input.nextLine();

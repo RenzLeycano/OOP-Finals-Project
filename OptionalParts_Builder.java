@@ -26,38 +26,38 @@ public class OptionalParts_Builder implements Resume {
         // projects - User's certifications
         System.out.print("Enter projects (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.projects = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.projects = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // certs - User's certifications
         checkerIfNA = "";
         System.out.print("Enter certifications (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.certs = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.certs = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // awards - User's awards
         checkerIfNA = "";
         System.out.print("Enter awards (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.awards = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.awards = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // training - Seminars and training the user attended/participated on
         checkerIfNA = "";
         System.out.print("Enter training/seminars (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.training = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.training = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // volunteerXP - User's volunteering experience
         checkerIfNA = "";
         System.out.print("Enter volunteer experiences (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.volunteerXP = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.volunteerXP = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // references - User's reference
         checkerIfNA = "";
         System.out.println("\nNOTE: ONLY ENTER REFERENCES IF YOU HAVE TO OR THE JOB DESCRIPTION REQUIRES IT.");
         System.out.print("Enter references (comma-separated): ");
         checkerIfNA = input.nextLine().trim();
-        this.reference = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
+        this.reference = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
     }
     public void edit(){
         boolean stopEditing = false;

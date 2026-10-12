@@ -162,7 +162,7 @@ public class Education_Builder implements Resume {
 
                     boolean validChoice = false;
                     do {
-                        System.out.print("Re-enter a value (1 - 6):");
+                        System.out.print("Re-enter a value (1 - 6): ");
                         choice = input.nextLine();
 
                         // Provides finishedEduc based on user input
@@ -171,7 +171,7 @@ public class Education_Builder implements Resume {
                             case "1":
                                 this.finishedEduc = "Junior High School";
                                 validChoice = !validChoice;
-                                degree = null;
+                                degree = new ArrayList<>();
                                 clearExcess(startYear, 1);
                                 clearExcess(gradYear, 1);
                                 clearExcess(school, 1);
@@ -179,7 +179,7 @@ public class Education_Builder implements Resume {
                             case "2":
                                 this.finishedEduc = "Senior High School";
                                 validChoice = !validChoice;
-                                degree = null;
+                                degree = new ArrayList<>();
                                 clearExcess(startYear, 1);
                                 clearExcess(gradYear, 1);
                                 clearExcess(school, 1);
@@ -216,7 +216,7 @@ public class Education_Builder implements Resume {
                                 System.out.println("Please enter a number between 1 - 6 ONLY.");
                                 break;
                         } 
-                    } while(validChoice);
+                    } while(!validChoice);
                     break;
                 case "2":
                     if(isCollege()){
@@ -225,7 +225,7 @@ public class Education_Builder implements Resume {
                             //Display the degrees first
                             System.out.println("\nYour current inputted degree/s:");
                             for(int i = 1; i < (degree.size()) + 1; i++){
-                                System.out.println("\t[i] " + degree.get(i-1));
+                                System.out.println("\t[" + i + "] " + degree.get(i-1));
                             }
 
                             System.out.println("Add, Edit, or Quit editing? (A / E / Q): ");
@@ -255,7 +255,7 @@ public class Education_Builder implements Resume {
                                         break;
                                     }
 
-                                    System.out.print("Edit the course work: ");
+                                    System.out.print("Edit the degree: ");
                                     degree.set((index - 1), input.nextLine());
                                     break;
                                 case "q":
@@ -410,7 +410,7 @@ public class Education_Builder implements Resume {
                         //Display the achievements first
                         System.out.println("\nYour current inputted academic achievements:");
                         for(int i = 1; i < (acadAchievements.size()) + 1; i++){
-                            System.out.println("\t[i] " + acadAchievements.get(i-1));
+                            System.out.println("\t[" + i + "] " + acadAchievements.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -471,7 +471,7 @@ public class Education_Builder implements Resume {
                             //Display the achievements first
                             System.out.println("\nYour current inputted course work:");
                             for(int i = 1; i < (courseWork.size()) + 1; i++){
-                                System.out.println("\t[i] " + courseWork.get(i-1));
+                                System.out.println("\t[" + i + "] " + courseWork.get(i-1));
                             }
 
                             System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");

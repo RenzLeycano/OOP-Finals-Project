@@ -36,10 +36,37 @@ public class Resume_Builder_Analyzer {
         char choice = Character.toUpperCase(input.next().charAt(0));input.nextLine();
 
         if (choice == 'Y') {
-            for(Resume change : sections){
-                change.edit();
-                change.display();
+            Boolean editSection = true;
+            while (editSection) {
+                System.out.println("Please type the corresponding number of the information you want to edit:");
+                System.out.println("\t[1] Personal Information\n\t[2] Resume Summary \n\t[3] Education\n\t[4] Work Experience\n\t[5] Skills\n\t[6] Optional Section (projects, certifications, awards, training/seminars, volunteer experience, and references) \n\t[7] Exit Editing");
+
+                System.out.print("Edit: ");
+                switch(input.nextLine()) {
+                    case "1":
+                        sections.get(0).edit();
+                        break;
+                    case "2":
+                        sections.get(1).edit();
+                        break;
+                    case "3":
+                        sections.get(2).edit();
+                        break;
+                    case "4":
+                        sections.get(3).edit();
+                        break;
+                    case "5":
+                        sections.get(4).edit();
+                        break;
+                    case "6":
+                        sections.get(5).edit();
+                        break;
+                    case "7":
+                        editSection = false;
+                        break;
+                }
             }
+            
         }
         
         System.out.print("Would you like to analyze this resume against a job description? (Y/N): ");

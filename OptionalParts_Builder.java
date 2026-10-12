@@ -79,7 +79,7 @@ public class OptionalParts_Builder implements Resume {
                         //Display the projects first
                         System.out.println("\nYour current inputted academic achievements:");
                         for(int i = 1; i < (projects.size()) + 1; i++){
-                            System.out.println("\t[i] " + projects.get(i-1));
+                            System.out.println("\t[" + i + "] " + projects.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -107,8 +107,14 @@ public class OptionalParts_Builder implements Resume {
 
                             case "d":
                                 System.out.print("Enter the number of a project to delete: ");
-                                if(projects.remove(input.nextLine())) {
+                                try {
+                                    projects.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
                                     System.out.println("Project does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
 
@@ -129,7 +135,7 @@ public class OptionalParts_Builder implements Resume {
                         //Display the certifications first
                         System.out.println("\nYour current inputted certifications:");
                         for(int i = 1; i < (certs.size()) + 1; i++){
-                            System.out.println("\t[i] " + certs.get(i-1));
+                            System.out.println("\t[" + i + "] " + certs.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -157,8 +163,14 @@ public class OptionalParts_Builder implements Resume {
 
                             case "d":
                                 System.out.print("Enter the number of a certificate to delete: ");
-                                if(!certs.remove(input.nextLine())) {
-                                    System.out.println("Certification does not exist.");
+                                try {
+                                    certs.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
+                                    System.out.println("Certificate does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
 
@@ -179,7 +191,7 @@ public class OptionalParts_Builder implements Resume {
                         //Display the awards first
                         System.out.println("\nYour current inputted awards:");
                         for(int i = 1; i < (awards.size()) + 1; i++){
-                            System.out.println("\t[i] " + awards.get(i-1));
+                            System.out.println("\t[" + i + "] " + awards.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -206,9 +218,15 @@ public class OptionalParts_Builder implements Resume {
                                 break;
 
                             case "d":
-                                System.out.print("Enter the number of an award to delete: ");
-                                if(!awards.remove(input.nextLine())) {
-                                    System.out.println("Award does not exist");
+                                System.out.print("Enter the number of a award to delete: ");
+                                try {
+                                    awards.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
+                                    System.out.println("Award does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
 
@@ -229,7 +247,7 @@ public class OptionalParts_Builder implements Resume {
                         //Display the training/seminar experience first
                         System.out.println("\nYour current inputted trainings/seminars:");
                         for(int i = 1; i < (training.size()) + 1; i++){
-                            System.out.println("\t[i] " + training.get(i-1));
+                            System.out.println("\t[" + i + "] " + training.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -256,11 +274,15 @@ public class OptionalParts_Builder implements Resume {
                                 break;
 
                             case "d":
-                                System.out.print("Enter the number of a training/seminar experience to delete: ");
-                                if(!training.remove(input.nextLine()))
-                                {
+                                System.out.print("Enter the number of a training/seminar to delete: ");
+                                try {
+                                    training.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
                                     System.out.println("Training/seminar does not exist.");
-                                    break;
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
                                 
@@ -281,7 +303,7 @@ public class OptionalParts_Builder implements Resume {
                         //Display the volunteer experience first
                         System.out.println("\nYour current inputted volunteer experience:");
                         for(int i = 1; i < (volunteerXP.size()) + 1; i++){
-                            System.out.println("\t[i] " + volunteerXP.get(i-1));
+                            System.out.println("\t[" + i + "] " + volunteerXP.get(i-1));
                         }
 
                         System.out.println("Add, edit, delete, or quit editing? (A / E / D / Q): ");
@@ -309,10 +331,14 @@ public class OptionalParts_Builder implements Resume {
 
                             case "d":
                                 System.out.print("Enter the number of a volunteer experience to delete: ");
-                                if(!volunteerXP.remove(input.nextLine()))
-                                {
-                                    System.out.println("The volunteer experience does not exist.");
-                                    break;
+                                try {
+                                    volunteerXP.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
+                                    System.out.println("Volunteer experience does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
                                 }
                                 break;
 
@@ -359,14 +385,18 @@ public class OptionalParts_Builder implements Resume {
                                 break;
 
                             case "d":
-                                System.out.print("Enter the number of a reference to delete: ");
-                                if(!reference.remove(input.nextLine()))
-                                {
-                                    System.out.println("The reference does not exist.");
-                                    break;
-                                } 
+                                System.out.print("Enter the number of a volunteer reference to delete: ");
+                                try {
+                                    reference.remove((input.nextInt() - 1)); 
+                                } catch(IndexOutOfBoundsException e){
+                                    System.out.println("Reference does not exist.");
+                                } catch(Exception e) {
+                                    System.out.println("Error: Try again. Enter a number.");
+                                } finally {
+                                    input.nextLine();
+                                }
                                 break;
-
+                                
                             case "q":
                                 listEdit = true;
                                 break;

@@ -80,7 +80,8 @@ public class Resume_Builder_Analyzer {
         if (analyze_choice == 'Y') {
             System.out.println("===================================JOB DESCRIPTION=======================================\n");
             System.out.println("Paste or type the job description below.");
-            System.out.println("Type 'END' on a new line when finished.");
+            System.out.println("(e.g. copied directly from a job posting on Linkedin, etc");
+            System.out.println("Type 'END' on a new line when finished.\n");
 
             StringBuilder text = new StringBuilder();
             while (true) {
@@ -94,7 +95,7 @@ public class Resume_Builder_Analyzer {
             QA_Analyzer analyze = new QA_Analyzer(sections, jobDescription);
             analyze.analyzer();
         }
-        System.out.println("Thank you for using Resume Builder and Analyzer.");
+        System.out.println("\nThank you for using Resume Builder and Analyzer.");
 
     }
 }

@@ -25,39 +25,39 @@ public class OptionalParts_Builder implements Resume {
 
         // projects - User's certifications
         System.out.print("Enter projects (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.projects = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.projects = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // certs - User's certifications
         checkerIfNA = "";
         System.out.print("Enter certifications (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.certs = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.certs = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // awards - User's awards
         checkerIfNA = "";
         System.out.print("Enter awards (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.awards = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.awards = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // training - Seminars and training the user attended/participated on
         checkerIfNA = "";
         System.out.print("Enter training/seminars (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.training = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.training = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // volunteerXP - User's volunteering experience
         checkerIfNA = "";
         System.out.print("Enter volunteer experiences (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.volunteerXP = (!checkerIfNA.equalsIgnoreCase("None")) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.volunteerXP = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
 
         // references - User's reference
         checkerIfNA = "";
         System.out.println("\nNOTE: ONLY ENTER REFERENCES IF YOU HAVE TO OR THE JOB DESCRIPTION REQUIRES IT.");
         System.out.print("Enter references (comma-separated): ");
-        checkerIfNA = input.nextLine();
-        this.reference = (!checkerIfNA.equalsIgnoreCase(checkerIfNA)) ? new ArrayList<>(Arrays.asList(checkerIfNA.split(","))) : new ArrayList<>();
+        checkerIfNA = input.nextLine().trim();
+        this.reference = (!checkerIfNA.equalsIgnoreCase("None") || !checkerIfNA.isEmpty()) ? new ArrayList<>(Arrays.asList(checkerIfNA.split("\\s*,\\s*"))) : new ArrayList<>();
     }
     public void edit(){
         boolean stopEditing = false;
@@ -420,37 +420,37 @@ public class OptionalParts_Builder implements Resume {
     public void display(){
         // Check first if the lists are not empty, otherwise they won't be printed.
         if(!projects.isEmpty()){
-            System.out.println("Projects");
+            System.out.println("\nProjects");
             for(String proj : projects) {
                 System.out.println("- " + proj.trim());
             }
         }
         if(!certs.isEmpty()){
-            System.out.println("Certifications");
+            System.out.println("\nCertifications");
             for(String cert : certs) {
                 System.out.println("- " + cert.trim());
             }
         }
         if(!awards.isEmpty()){
-            System.out.println("Awards");
+            System.out.println("\nAwards");
             for(String award : awards) {
                 System.out.println("- " + award.trim());
             }
         }
         if(!training.isEmpty()){
-            System.out.println("Training / Seminar Attended");
+            System.out.println("\nTraining / Seminar Attended");
             for(String xp : training) {
                 System.out.println("- " + xp.trim());
             }
         }
         if(!volunteerXP.isEmpty()){
-            System.out.println("Volunteering Experience");
+            System.out.println("\nVolunteering Experience");
             for(String volunteer : volunteerXP) {
                 System.out.println("- " + volunteer.trim());
             }
         }
         if(!reference.isEmpty()){
-            System.out.println("References");
+            System.out.println("\nReferences");
             for(String ref : reference) {
                 System.out.println("- " + ref.trim());
             }

@@ -129,12 +129,12 @@ public class Education_Builder implements Resume {
         }
         // acadAchievements - User's achievements in academics
         System.out.print("\nEnter your academic achievements (comma-separated): ");
-        this.acadAchievements = new ArrayList<>(Arrays.asList(input.nextLine().split(",")));
+        this.acadAchievements = new ArrayList<>(Arrays.asList(input.nextLine().split("\\s*,\\s*")));
 
         // courseWork - User's course work, only asked if the user went to college
         if(isCollege()){
             System.out.print("\nEnter your relevant course work (comma-separated): ");
-            this.courseWork = new ArrayList<>(Arrays.asList(input.nextLine().split(",")));
+            this.courseWork = new ArrayList<>(Arrays.asList(input.nextLine().split("\\s*,\\s*")));
         }
     }
     public void edit(){
@@ -532,7 +532,7 @@ public class Education_Builder implements Resume {
         if(isCollege()) {
             for(int i = 0; i < degree.size(); i++) {
                 try {
-                    System.out.println(degree.get(i));
+                    System.out.println("\n" + degree.get(i));
                 } catch(IndexOutOfBoundsException e) {
                     System.out.println("Unknown");
                 }
@@ -552,7 +552,7 @@ public class Education_Builder implements Resume {
                 }
             }
         } else {
-            System.out.println(school.get(0));
+            System.out.println("\n" + school.get(0));
             try {
                 if(gradYear.get(0) > currentYear) {
                 System.out.println("Expected " + gradYear.get(0) + "\n");
@@ -564,7 +564,7 @@ public class Education_Builder implements Resume {
             }
             
         }
-        System.out.println("Achievements: ");
+        System.out.println("\nAchievements: ");
         for(String achievement : acadAchievements){
             System.out.println("- " + achievement);
         }

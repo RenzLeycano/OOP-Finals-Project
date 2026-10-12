@@ -569,7 +569,7 @@ public class Education_Builder implements Resume {
             System.out.println("- " + achievement);
         }
         if(isCollege()) {
-            System.out.println("Course Work: ");
+            System.out.println("\nCourse Work: ");
             for(String courses : courseWork){
                 System.out.println("- " + courses);
             }

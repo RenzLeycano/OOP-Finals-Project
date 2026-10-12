@@ -31,7 +31,7 @@ public class Skills_Builder implements Resume {
         this.languages = input.nextLine();
     }
     public void display(){
-        System.out.println("Technical Skills:\t" + techSkills);
+        System.out.println("\nTechnical Skills:\t" + techSkills);
         System.out.println("Soft Skills\t:\t" + softSkills);
         System.out.println("Languages\t:\t" + languages);
     }

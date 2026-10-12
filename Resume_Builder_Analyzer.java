@@ -32,7 +32,7 @@ public class Resume_Builder_Analyzer {
 
         // QA_Analyzer analyze;
         
-        System.out.print("Would you like to edit any section? (Y/N): ");
+        System.out.print("\nWould you like to edit any section? (Y/N): ");
         char choice = Character.toUpperCase(input.next().charAt(0));input.nextLine();
 
         if (choice == 'Y') {
@@ -74,7 +74,7 @@ public class Resume_Builder_Analyzer {
             
         }
         
-        System.out.print("Would you like to analyze this resume against a job description? (Y/N): ");
+        System.out.print("\nWould you like to analyze this resume against a job description? (Y/N): ");
         char analyze_choice = Character.toUpperCase(input.next().charAt(0));input.nextLine();
         
         if (analyze_choice == 'Y') {

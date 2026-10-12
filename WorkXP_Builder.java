@@ -85,12 +85,12 @@ public class WorkXP_Builder implements Resume {
         }
     }
     public void display(){
-        System.out.println("Work Experience: ");
+        System.out.println("\nWork Experience: ");
         for(String XP : experiences){
             if(XP.trim().isEmpty()) {
                 continue; // Checks if the experience inputted is empty or only contains whitespaces
             }
-            System.out.println("\t- " + XP);
+            System.out.println("- " + XP);
         }
     }
 }

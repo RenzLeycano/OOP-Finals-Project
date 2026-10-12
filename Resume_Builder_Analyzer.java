@@ -39,7 +39,7 @@ public class Resume_Builder_Analyzer {
             Boolean editSection = true;
             while (editSection) {
                 System.out.println("Please type the corresponding number of the information you want to edit:");
-                System.out.println("\t[1] Personal Information\n\t[2] Resume Summary \n\t[3] Education\n\t[4] Work Experience\n\t[5] Skills\n\t[6] Optional Section (projects, certifications, awards, training/seminars, volunteer experience, and references) \n\t[7] Exit Editing");
+                System.out.println("\t[1] Personal Information\n\t[2] Resume Summary \n\t[3] Education\n\t[4] Work Experience\n\t[5] Skills\n\t[6] Optional Section (projects, certifications, awards, training/seminars, volunteer experience, and references) \n\t[7] Preview Resume \n\t[8] Exit Editing");
 
                 System.out.print("Edit: ");
                 switch(input.nextLine()) {
@@ -62,6 +62,11 @@ public class Resume_Builder_Analyzer {
                         sections.get(5).edit();
                         break;
                     case "7":
+                        for(Resume build : sections) {
+                            build.display();
+                        }
+                        break;
+                    case "8":
                         editSection = false;
                         break;
                 }
